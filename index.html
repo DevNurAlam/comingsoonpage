@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h3 class="title">we are coming soon!</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quas perferendis quod eos, consequuntur quo aut dolore distinctio atque voluptatibus neque soluta ullam tempore voluptates porro sapiente quia quibusdam ipsum?</p>
+            <div class="count-down" id="launch">
+                <div class="box">
+                    <h3 id="day">00</h3>
+                    <span>day</span>
+                </div>
+                <div class="box">
+                    <h3 id="hour">00</h3>
+                    <span>hour</span>
+                </div>
+                <div class="box">
+                    <h3 id="minute">00</h3>
+                    <span>minute</span>
+                </div>
+                <div class="box">
+                    <h3 id="second">00</h3>
+                    <span>second</span>
+                </div>
+            </div>
+            <a href="#" class="btn">notify me</a>
+        </div>
+        <div class="image">
+            <img src="img/giphy.gif" alt="">
+        </div>
+        
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        let countDownDate = new Date("jan 7, 2022 00:00:00").getTime();
+        
+        let x = setInterval(function()  {
+
+            let now = new Date ().getTime();
+
+            let Distance = countDownDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("launch").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.get getElementById("launch").innerHTML = "EXPIRED";
+                }
+
+        }, 1000);
+
+        function countDown(){
+            let now = new Date().getTime();
+            gap = now - counteDate;
+
+            let second = 1000;
+            let minute = second * 60;  
+            let hour = minute * 60;  
+            let day = hour * 24;  
+
+            let d = Math.floor(gap / (day));
+            let h = Math.floor((gap % (day)) / (hour));
+            let m = Math.floor((gap % (hour)) / (minute));
+            let s = Math.floor((gap % (minute)) / (second));
+
+            document.getElementById('day').innerText = d;
+            document.getElementById('hour').innerText = h;
+            document.getElementById('minute').innerText = m;
+            document.getElementById('second').innerText = s;
+        }
+
+        setInterval(function(){
+            countDown();
+        }, 1000)
+
+    </script>
+
+</body>
+</html>
